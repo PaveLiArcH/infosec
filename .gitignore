@@ -1,0 +1,7 @@
+*.suo
+*.user
+/DES/DES/obj
+/Substitution/Substitution/obj
+/DES/DES/bin
+/Substitution/Substitution/bin
+
