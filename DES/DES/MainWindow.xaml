@@ -1,8 +1,29 @@
 ﻿<Window x:Class="DES.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Шифрование DES алгоритмами" Height="350" Width="525" Name="v_window" DataContext="{Binding RelativeSource={RelativeSource Self}}">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <GroupBox Header="Метод" Grid.Row="0" Margin="1">
+            <StackPanel>
+                <RadioButton IsChecked="{Binding ElementName=v_window, Path=IsECB}">ECB</RadioButton>
+                <RadioButton IsChecked="{Binding ElementName=v_window, Path=IsCBC}">CBC</RadioButton>
+                <RadioButton IsChecked="{Binding ElementName=v_window, Path=IsCFB}">CFB</RadioButton>
+                <RadioButton IsChecked="{Binding ElementName=v_window, Path=IsOFB}">OFB</RadioButton>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Действие" Grid.Row="1" Margin="1">
+            <StackPanel>
+                <RadioButton IsChecked="{Binding ElementName=v_window, Path=IsEncrypt}">Шифрование</RadioButton>
+                <RadioButton IsChecked="{Binding ElementName=v_window, Path=IsDecrypt}">Расшифрование</RadioButton>
+            </StackPanel>
+        </GroupBox>
+        <TextBox Grid.Row="2" Text="{Binding ElementName=v_window, Path=SourceText, FallbackValue=Error, UpdateSourceTrigger=PropertyChanged}" Margin="4" />
+        <TextBox IsReadOnly="True" Grid.Row="3" Text="{Binding ElementName=v_window, Path=ResultText}" Margin="4" />
     </Grid>
 </Window>

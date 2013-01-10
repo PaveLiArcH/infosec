@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DES
 {
-    public class ECB
+    public class ECB : IDES
     {
         const int w = 64;
         const int rew = 48;
